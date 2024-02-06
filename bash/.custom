@@ -58,3 +58,10 @@ alias ll='ls -lahF'
 
 ##cleaner looking df
 alias df="df -Tha --total"
+
+#function weather()
+#{
+# curl 'wttr.in/?m&lang=de'
+# curl 'v2d.wttr.in/'
+#}
+
