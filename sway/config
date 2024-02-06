@@ -72,7 +72,6 @@ input * {
 
 input "1267:12918:ELAN07B9:00_04F3:3276_Touchpad" {
     natural_scroll enabled
-    pointer_accel -.2
     accel_profile flat
     scroll_factor .5
   }
@@ -267,5 +266,10 @@ client.background       $bg
 # Note the quoting, the $() and the arguments quoting. All the parts are equally
 # important to make the magic work. And if you want to learn the secret behind
 # the trick, it's all in the `wordexp(3)`.
-#
+
+for_window [app_id="firefox" title="Bild-im-Bild"] \
+    floating enable, move position 100 100, sticky enable, border none
+
+
+
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
