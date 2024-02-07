@@ -9,6 +9,7 @@ cd "$dotpath"
 /usr/bin/rsync -a $HOME/.config/nvim/lua/custom/* "$dotpath/nvim" && \
 /usr/bin/rsync -a $HOME/.config/sway/config "$dotpath/sway" && \
 /usr/bin/rsync -a $HOME/.config/waybar/* "$dotpath/waybar"
+/usr/bin/rsync -a $HOME/.config/rofi/config.rasi "$dotpath/rofi"
 
 ## exec git if rsync was succesful
 if [ $? -eq 0 ]; then
