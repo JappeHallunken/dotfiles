@@ -9,4 +9,3 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 --require('custom.live_server')
 --require('custom.configs.live_server')
-

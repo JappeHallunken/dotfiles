@@ -4,7 +4,6 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -18,9 +17,9 @@ local plugins = {
     lazy = false,
   },
   {
-        'barrett-ruth/live-server.nvim',
-        config = true,
-        cmd = {'LiveServer', 'LiveServerStart', 'LiveServerStop'}
+    'barrett-ruth/live-server.nvim',
+    config = true,
+    cmd = {'LiveServer', 'LiveServerStart', 'LiveServerStop'}
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
