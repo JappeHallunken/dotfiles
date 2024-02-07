@@ -14,7 +14,7 @@
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
-export PS1="\[\e[31m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]:\w\[\e[33m\]\\$\[\e[m\] "
+export PS1="\[\e[35m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[93m\]\\$\[\e[m\] "
 alias upev='sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y'
 alias c='clear'
 
@@ -59,9 +59,8 @@ alias ll='ls -lahF'
 ##cleaner looking df
 alias df="df -Tha --total"
 
-#function weather()
-#{
-# curl 'wttr.in/?m&lang=de'
-# curl 'v2d.wttr.in/'
-#}
-
+function weather()
+{
+ curl 'wttr.in/?m&lang=de'
+ curl 'v2d.wttr.in/'
+}
