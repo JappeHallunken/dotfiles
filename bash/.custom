@@ -64,3 +64,4 @@ function weather()
  curl 'wttr.in/?m&lang=de'
  curl 'v2d.wttr.in/'
 }
+alias air='~/go/bin/air'
