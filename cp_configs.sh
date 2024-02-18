@@ -5,7 +5,7 @@ dotpath="$HOME/dotfiles"
 cd "$dotpath"
 
 ## execute rsync
-/usr/bin/rsync -a $HOME/.config/bashconf/.bashrc.d/.custom "$dotpath/bash" && \
+/usr/bin/rsync -a $HOME/.bashrc.d/custom "$dotpath/bash" && \
 /usr/bin/rsync -a $HOME/.config/nvim/lua/custom/* "$dotpath/nvim" && \
 /usr/bin/rsync -a $HOME/.config/sway/config "$dotpath/sway" && \
 /usr/bin/rsync -a $HOME/.config/waybar/* "$dotpath/waybar"
