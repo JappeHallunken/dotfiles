@@ -65,3 +65,4 @@ function weather()
  curl 'v2d.wttr.in/'
 }
 alias air='~/go/bin/air'
+alias sunvim='sudo -E -s nvim'
