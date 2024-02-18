@@ -149,9 +149,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-/*script { 
-  name = "firefox private mode";
-  script = "/home/jappe/.local/bin/rofi-firefox-private-mode.sh";
-  description = "Start Firefox in private mode";
-}*/
 @theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
