@@ -32,12 +32,12 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
 output * bg /usr/share/backgrounds/default.png fit
-output HDMI-A-1 pos 0 0 res 1920x1080 
-#output eDP-1 scale 1.2
+#output HDMI-A-1 pos 0 0 res 1920x1080 
+output eDP-1 pos 1080 900
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
+ output HDMI-A-1 resolution 1920x1080 position 0 0 transform 270
+# 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -75,7 +75,7 @@ input "1267:12918:ELAN07B9:00_04F3:3276_Touchpad" {
     accel_profile flat
     scroll_factor .5
   }
-input "2362:9488:PixArt_USB_Optical_Mouse" {
+input "1130:45201:PixArt_Cherry_USB_Optical_Mouse" {
     natural_scroll disabled
     pointer_accel -.4
     accel_profile flat
@@ -162,6 +162,10 @@ input "2362:9488:PixArt_USB_Optical_Mouse" {
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
+# swaylock
+#
+    bindsym --release $mod+Shift+Escape exec swaylock -f --image=/usr/share/backgrounds/bg.png
+#
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -223,7 +227,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
+###snipping tool binding ####
+bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy 
 
 smart_borders on
 smart_gaps on
