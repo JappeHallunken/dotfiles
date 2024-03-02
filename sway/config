@@ -279,6 +279,7 @@ for_window [app_id="firefox" title="Bild-im-Bild"] \
 for_window [app_id="qalculate" title="Qalculate!"] \
     floating enable, border normal, move position cursor
 
-
+for_window [title="Bitwarden – Mozilla Firefox" ]\
+    floating enable
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
