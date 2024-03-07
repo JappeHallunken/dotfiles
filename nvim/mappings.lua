@@ -11,8 +11,14 @@ M.general = {
         require("conform").format()
       end,
       "formatting",
-    }
-
+    },
+     -- Add a new mapping for LSP format
+        ["<leader>f"] = {
+            function()
+                vim.lsp.buf.format()
+            end,
+            "LSP format",
+        }
   },
   v = {
     [">"] = { ">gv", "indent"},
@@ -29,5 +35,8 @@ M.codeium = {
      ["<C-l>"] = {function () return vim.fn['codeium#Complete']() end, opts = { expr = true, silent = true }},
      },
 }
+
+
+
 
 return M

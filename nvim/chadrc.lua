@@ -4,6 +4,7 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 
+
 M.ui = {
   theme = "everforest_light",
   theme_toggle = { "everforest_light", "everforest_light" },
@@ -16,5 +17,6 @@ M.plugins = "custom.plugins"
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
+
 
 return M
