@@ -2,6 +2,8 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
+  -- Install without configuration
+  { 'projekt0n/github-nvim-theme' },
 
   -- Override plugin definition options
   {
@@ -28,7 +30,6 @@ local plugins = {
       return require "custom.config.null-ls"
     end,
   },
-
   -- override plugin configs
   {
     "williamboman/mason.nvim",

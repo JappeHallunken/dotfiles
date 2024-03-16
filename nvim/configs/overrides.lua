@@ -34,6 +34,7 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "phpactor",
 
     -- c/cpp stuff
     "clangd",
