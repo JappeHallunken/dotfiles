@@ -52,7 +52,7 @@ output HDMI-A-1 resolution 1920x1080 pos 0 0
 #exec 'swaylock -f --image=/usr/share/backgrounds/bg.png'
 
 exec swayidle -w \
-          timeout 300 'swaylock -f --image=/usr/share/backgrounds/bg.png' \
+          timeout 300 'swaylock --f --image=/usr/share/backgrounds/bg.png' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           timeout 1200 'systemclt suspend' before-sleep 'swaylock -f --image=/usr/share/backgrounds/bg.png'
 #

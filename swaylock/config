@@ -1,0 +1,17 @@
+bs-hl-color=#db3300
+indicator-thickness=8
+inside-color=#adadad87
+inside-clear-color=#a67122bf
+inside-ver-color=#0072ffbf
+inside-wrong-color=#fa0000bf
+key-hl-color=#33db00
+line-color=#000000
+line-clear-color=#000000
+line-caps-lock-color=#000000
+line-ver-color=#000000
+line-wrong-color=#000000
+ring-color=#70ed19
+ring-clear-color=#e5a445
+ring-ver-color=#00e2ff
+ring-wrong-color=#7d3300
+separator-color=#000000
