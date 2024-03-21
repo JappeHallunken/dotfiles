@@ -4,6 +4,7 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
   -- Install without configuration
   { 'projekt0n/github-nvim-theme' },
+  { "savq/melange-nvim" },
 
   -- Override plugin definition options
   {
