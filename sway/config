@@ -169,7 +169,7 @@ input "2362:9488:PixArt_USB_Optical_Mouse" {
 #
 # swaylock
 #
-    bindsym --release $mod+Shift+Escape exec swaylock -f --image=/usr/share/backgrounds/bg.png
+    bindsym --release $mod+Shift+Escape exec swaylock -f
 #
 # Layout stuff:
 #
