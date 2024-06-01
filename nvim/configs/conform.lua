@@ -9,7 +9,9 @@ local options = {
 		html = { "prettier" },
     go = { "gopls" },
 		templ = { "prettier" },
-    php = { "phpcbf" }
+    php = { "phpcbf" },
+    csharp = { "csharpier" },
+    cs = { "csharpier" }
 	},
 
   -- adding same formatter for multiple filetypes can look too much work for some

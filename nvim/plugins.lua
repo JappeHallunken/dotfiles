@@ -57,7 +57,7 @@ local plugins = {
         height = 0.5,
         border = "single",
       },
-      horizontal = { location = "rightbelow", split_ratio = .1, },
+      horizontal = { location = "rightbelow", split_ratio = .25, },
       vertical = { location = "rightbelow", split_ratio = .5 },
     }
   },
