@@ -300,7 +300,7 @@ for_window [app_id="blueman-manager" title="Bluetooth-Geräte"] \
 for_window [title="Entwicklerwerkzeuge" app_id="org.mozilla.firefox"] \
     floating enable
 
-for_window [title="Developer Tools" app_id="firefox-aurora"] \
+for_window [title="Entwicklerwerkzeuge" app_id="firefox-aurora"] \
     floating enable
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
