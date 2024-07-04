@@ -54,7 +54,7 @@ output HDMI-A-1 resolution 1920x1080 pos 0 0
 exec swayidle -w \
           timeout 300 'swaylock -f' \
           timeout 00 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          timeout 1200 'systemclt suspend' before-sleep 'swaylock -f'
+          timeout 1200 'systemctl suspend' before-sleep 'swaylock -f'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -244,6 +244,9 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 # Custom timer hotkey
 #bindsym $mod+t exec "sleep 48m && swaynag -m 'Zeit für eine Pause!'"
+
+### suspend
+bindsym  $mod+Ctrl+s exec systemctl suspend
    
 smart_borders on
 smart_gaps on
