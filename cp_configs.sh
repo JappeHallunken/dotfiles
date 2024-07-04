@@ -11,6 +11,7 @@ cd "$dotpath"
 /usr/bin/rsync -a $HOME/.config/waybar/* "$dotpath/waybar"
 /usr/bin/rsync -a $HOME/.config/rofi/config.rasi "$dotpath/rofi"
 /usr/bin/rsync -a $HOME/.swaylock/config "$dotpath/swaylock"
+/usr/bin/rsync -a $HOME/.local/bin/waybar-timer.sh  "$dotpath/waybar-timer.sh" 
 
 ## exec git if rsync was succesful
 if [ $? -eq 0 ]; then

@@ -279,3 +279,10 @@ label:focus {
 #scratchpad.empty {
 	background-color: transparent;
 }
+.timer {
+    background-color: #ffee82;
+    color: #242424;
+    margin: 0 10px;
+    padding: 0 10px;
+}
+

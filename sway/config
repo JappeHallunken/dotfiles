@@ -242,6 +242,9 @@ bindsym $mod+r mode "resize"
 ###snipping tool binding ####
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy 
 
+# Custom timer hotkey
+#bindsym $mod+t exec "sleep 48m && swaynag -m 'Zeit für eine Pause!'"
+   
 smart_borders on
 smart_gaps on
 

@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 3, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/timer"],
     "modules-center": ["sway/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery","clock", "tray"],
       //"battery#bat2", 
@@ -164,6 +164,24 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    },
+    "custom/timer": {
+    "exec": "/home/jappe/.local/bin/waybar-timer.sh updateandprint",
+    "exec-on-event": true,
+    "return-type": "json",
+    "interval": 5,
+    "signal": 4,
+    "format": "{icon} {}",
+    "format-icons": {
+        "standby": "STANDBY",
+        "running": "RUNNING",
+        "paused": "PAUSE"
+    },
+    "on-click": "/home/jappe/.local/bin/waybar-timer.sh new 25 'notify-send \"Session finished\"'",
+    "on-click-middle": "/home/jappe/.local/bin/waybar-timer.sh cancel",
+    "on-click-right": "/home/jappe/.local/bin/waybar-timer.sh togglepause",
+    "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer expired.\"'",
+    "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
+}
 }
 
