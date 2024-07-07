@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/timer"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/audio_idle_inhibitor","idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery","clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery","clock", "tray"],
       //"battery#bat2", 
     // Modules configuration
     // "sway/workspaces": {
@@ -183,17 +183,5 @@
     "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer expired.\"'",
     "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
   },
-  "custom/audio_idle_inhibitor": {
-		"format": "{icon}",
-		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
-		"exec-if": "which sway-audio-idle-inhibit",
-		"return-type": "json",
-		"format-icons": {
-			"output": " ",
-			"input": "",
-			"output-input": " ",
-			"none": ""
-		}
-	},
 }
 
