@@ -177,10 +177,10 @@
         "running": "RUNNING",
         "paused": "PAUSE"
     },
-    "on-click": "/home/jappe/.local/bin/waybar-timer.sh new 25 'notify-send \"Session finished\"'",
+    "on-click": "/home/jappe/.local/bin/waybar-timer.sh new 25 'notify-send \"Zeit für eine Pause!\"'",
     "on-click-middle": "/home/jappe/.local/bin/waybar-timer.sh cancel",
     "on-click-right": "/home/jappe/.local/bin/waybar-timer.sh togglepause",
-    "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer expired.\"'",
+    "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer abgelaufen.\"'",
     "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
   },
 }
