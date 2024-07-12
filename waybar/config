@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 3, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/timer"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/timer", "custom/weather"],
     "modules-center": ["sway/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery","clock", "tray"],
       //"battery#bat2", 
@@ -183,5 +183,12 @@
     "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer abgelaufen.\"'",
     "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
   },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar",
+    "return-type": "json"
+},
 }
 
