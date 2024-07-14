@@ -67,3 +67,7 @@ function weather()
 alias air='~/go/bin/air'
 
 alias sunvim='sudo -E bash -c "export HOME=$(eval echo ~$SUDO_USER) && nvim"'
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+fi
