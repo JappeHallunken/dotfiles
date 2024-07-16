@@ -257,6 +257,13 @@ bindsym  $mod+Ctrl+h exec systemctl hibernate
 
 ### toggle idle_inhibatior
 #bindsym $mod+Ctrl+I "exec 'swaymsg inhibit_idle on'"
+
+###switch tlp power modes
+bindsym $mod+Ctrl+B exec tlp bat
+bindsym $mod+Ctrl+A exec tlp ac
+
+
+
    
 smart_borders on
 smart_gaps on

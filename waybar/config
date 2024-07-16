@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 3, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/weather","custom/timer"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "custom/tlp_mode", "custom/timer", "custom/weather"],
     "modules-center": ["sway/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery","clock", "tray"],
       //"battery#bat2", 
@@ -189,6 +189,12 @@
     "interval": 3600,
     "exec": "wttrbar",
     "return-type": "json"
-},
+  },
+  "custom/tlp_mode": {
+        "exec": "/home/jappe/.config/waybar/tlp_mode.sh",
+        "interval": 60,
+        "format": "{}",
+        "tooltip": false
+    }
 }
 
