@@ -186,7 +186,7 @@
   "custom/weather": {
     "format": "{}°",
     "tooltip": true,
-    "interval": 3600,
+    "interval": 1800,
     "exec": "wttrbar",
     "return-type": "json"
   },
