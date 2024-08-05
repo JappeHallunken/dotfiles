@@ -37,7 +37,7 @@ output * bg /usr/share/backgrounds/fedora.jpg fit
 #output HDMI-A-1 bg /usr/share/backgrounds/default.png fill
 
 #output HDMI-A-1 pos 0 0 res 1920x1080 
-output eDP-1 pos 1920 0
+output eDP-1 pos 1680 0
 # Example configuration:
 #
 output HDMI-A-1 resolution 1680x1050 pos 0 0 
