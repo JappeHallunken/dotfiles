@@ -186,8 +186,8 @@
   "custom/weather": {
     "format": "{}°",
     "tooltip": true,
-    "interval": 1800,
-    "exec": "wttrbar",
+    "interval": 600,
+    "exec": "wttrbar --location Leipzig --lang de",
     "return-type": "json"
   },
 }
