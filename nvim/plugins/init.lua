@@ -9,15 +9,15 @@ return {
     priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
     config = true,
   },
-{
-  "camspiers/luarocks",
-  dependencies = {
-    "rcarriga/nvim-notify", -- Optional dependency
+  {
+    "camspiers/luarocks",
+    dependencies = {
+      "rcarriga/nvim-notify", -- Optional dependency
+    },
+    opts = {
+      rocks = { "fzy" }, -- Specify LuaRocks packages to install
+    },
   },
-  opts = {
-    rocks = { "fzy" } -- Specify LuaRocks packages to install
-  }
-},
   {
     "sho-87/kanagawa-paper.nvim",
     lazy = false,
@@ -51,13 +51,16 @@ return {
     event = "BufEnter",
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+      },
+    },
+  },
 }
