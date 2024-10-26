@@ -1,42 +1,10 @@
----@type MappingsTable
-local M = {}
+require "nvchad.mappings"
 
-M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+-- add yours here
 
-    --  format with conform
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "formatting",
-    },
-     -- Add a new mapping for LSP format
-        ["<leader>f"] = {
-            function()
-                vim.lsp.buf.format()
-            end,
-            "LSP format",
-        }
-  },
-  v = {
-    [">"] = { ">gv", "indent"},
-  },
-}
+local map = vim.keymap.set
 
--- more keybinds!
-M.codeium = {
-     i = {
-     ["<C-ä>"] = {function () return vim.fn['codeium#Accept']() end, opts = { expr = true, silent = true }},
-     ["<C-,>"] = {function () return vim.fn['codeium#CycleCompletions'](1) end, opts = { expr = true, silent = true }},
-     ["<C-.>"] = {function () return vim.fn['codeium#CycleCompletions'](-1) end, opts = { expr = true, silent = true }},
-     ["<C-ö>"] = {function () return vim.fn['codeium#Clear']() end, opts = { expr = true, silent = true }},
-     ["<C-l>"] = {function () return vim.fn['codeium#Complete']() end, opts = { expr = true, silent = true }},
-     },
-}
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
 
-
-
-
-return M
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
