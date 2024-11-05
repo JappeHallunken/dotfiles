@@ -256,7 +256,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy 
 
 # Custom timer hotkey
-#bindsym $mod+t exec "sleep 48m && swaynag -m 'Zeit für eine Pause!'"
+bindsym $mod+t exec --no-startup-id /home/jappe/.config/foot/switch-theme.sh
 
 ### hibernate
 bindsym  $mod+Ctrl+h exec systemctl hibernate
@@ -338,3 +338,5 @@ for_window [title="Entwicklerwerkzeuge" app_id="firefox-aurora"] \
     floating enable
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+exec gammastep

@@ -8,10 +8,11 @@ cd "$dotpath"
 /usr/bin/rsync -a $HOME/.bashrc.d/custom "$dotpath/bash" && \
 /usr/bin/rsync -a $HOME/.config/nvim/lua/* "$dotpath/nvim" && \
 /usr/bin/rsync -a $HOME/.config/sway/config "$dotpath/sway" && \
-/usr/bin/rsync -a $HOME/.config/waybar/* "$dotpath/waybar"
-/usr/bin/rsync -a $HOME/.config/rofi/config.rasi "$dotpath/rofi"
-/usr/bin/rsync -a $HOME/.swaylock/config "$dotpath/swaylock"
-/usr/bin/rsync -a $HOME/.local/bin/waybar-timer.sh  "$dotpath/waybar-timer.sh" 
+/usr/bin/rsync -a $HOME/.config/waybar/* "$dotpath/waybar" && \
+/usr/bin/rsync -a $HOME/.config/rofi/config.rasi "$dotpath/rofi" && \
+/usr/bin/rsync -a $HOME/.swaylock/config "$dotpath/swaylock" && \
+/usr/bin/rsync -a $HOME/.local/bin/waybar-timer.sh  "$dotpath/waybar-timer.sh" && \
+/usr/bin/rsync -a $HOME/.config/foot/foot.ini "$dotpath/foot"
 
 ## exec git if rsync was succesful
 if [ $? -eq 0 ]; then
