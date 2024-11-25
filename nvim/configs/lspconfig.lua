@@ -14,14 +14,14 @@ for _, lsp in ipairs(servers) do
     lspconfig.gopls.setup {
       cmd = { "gopls" },
       filetypes = { "go", "gomod" },
-      root_dir = lspconfig.util.root_pattern("go.mod", ".git"),  -- Set root dir to go.mod or .git
+      root_dir = lspconfig.util.root_pattern("go.mod", ".git"), -- Set root dir to go.mod or .git
       settings = {
         gopls = {
           analyses = {
-            unusedparams = true,  -- Enable unusedparams analysis
+            unusedparams = true, -- Enable unusedparams analysis
           },
-          staticcheck = true,  -- Enable staticcheck linting
-          gofumpt = true,  -- Enable gofumpt formatting
+          staticcheck = true, -- Enable staticcheck linting
+          gofumpt = true, -- Enable gofumpt formatting
         },
       },
       on_attach = nvlsp.on_attach,
@@ -29,13 +29,12 @@ for _, lsp in ipairs(servers) do
       capabilities = nvlsp.capabilities,
     }
   else
-
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
+    lspconfig[lsp].setup {
+      on_attach = nvlsp.on_attach,
+      on_init = nvlsp.on_init,
+      capabilities = nvlsp.capabilities,
+    }
+  end
 end
 
 -- configuring single server, example: typescript
