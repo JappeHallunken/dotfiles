@@ -171,7 +171,7 @@
     "return-type": "json",
     "interval": 5,
     "signal": 4,
-    "format": "{icon} {}",
+    "format": "{icon} {0}",
     "format-icons": {
         "standby": "STANDBY",
         "running": "RUNNING",
@@ -189,6 +189,6 @@
     "interval": 600,
     "exec": "wttrbar --location Leipzig --lang de",
     "return-type": "json"
-  },
+  }
 }
 
