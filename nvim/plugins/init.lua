@@ -18,12 +18,12 @@ return {
       rocks = { "fzy" }, -- Specify LuaRocks packages to install
     },
   },
-  {
-    "sho-87/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
+  -- {
+  --   "sho-87/kanagawa-paper.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
   {
     "NeogitOrg/neogit",
     dependencies = {
