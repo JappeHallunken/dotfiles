@@ -17,7 +17,8 @@ cd "$dotpath"
 /usr/bin/rsync -a --delete $HOME/.config/darkman/config.yaml "$dotpath/darkman" && \
 /usr/bin/rsync -a --delete /usr/share/dark-mode.d/* "$dotpath/darkman/" && \
 /usr/bin/rsync -a --delete /usr/share/light-mode.d/* "$dotpath/darkman/" && \
-/usr/bin/rsync -a --delete $HOME/.config/dunst/dunstrc "$dotpath/dunst/"
+/usr/bin/rsync -a --delete $HOME/.config/dunst/dunstrc "$dotpath/dunst/" && \
+/usr/bin/rsync -a --delete $HOME/.config/tmux/* "$dotpath/tmux/"
 
 
 ## exec git if rsync was succesful
