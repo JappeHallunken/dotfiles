@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "flexoki-light",
-  theme_toggle = { "flexoki-light", "github_dark" },
+  theme = "github_dark",
+  theme_toggle = { "github_light", "github_dark" },
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
