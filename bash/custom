@@ -69,9 +69,24 @@ alias air='~/go/bin/air'
 alias sunvim='sudo -E bash -c "export HOME=$(eval echo ~$SUDO_USER) && nvim"'
 export SSH_ASKPASS=
 
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)"  # Starte ssh-agent
-    ssh-add ~/.ssh/id_ed25519  # Füge deinen Schlüssel hinzu
-    export SSH_AUTH_SOCK
-    export SSH_AGENT_PID
+
+if [ -n "$TMUX" ]; then
+    if [ -z "$SSH_AUTH_SOCK" ] || ! test -S "$SSH_AUTH_SOCK"; then
+        if [ -f "$HOME/.ssh-agent-info" ]; then
+            # SSH-Agent-Info laden
+            eval "$(cat $HOME/.ssh-agent-info)"
+            # Prüfen, ob der SSH-Socket gültig ist
+            if ! test -S "$SSH_AUTH_SOCK"; then
+                echo "Ungültiger SSH-Agent-Socket, starte SSH-Agent neu..."
+                ssh-agent -s | grep -v '^Agent' > "$HOME/.ssh-agent-info"
+                eval "$(cat $HOME/.ssh-agent-info)"
+                ssh-add ~/.ssh/id_ed25519
+            fi
+        else
+            # Neuen SSH-Agent starten und Info speichern
+            ssh-agent -s | grep -v '^Agent' > "$HOME/.ssh-agent-info"
+            eval "$(cat $HOME/.ssh-agent-info)"
+            ssh-add ~/.ssh/id_ed25519
+        fi
+    fi
 fi
