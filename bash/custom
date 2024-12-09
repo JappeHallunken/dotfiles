@@ -90,3 +90,16 @@ if [ -n "$TMUX" ]; then
         fi
     fi
 fi
+
+stop_ssh_agent_if_no_tmux() {
+    if [ -z "$TMUX" ]; then
+        # Prüfen, ob noch Tmux-Sessions aktiv sind
+        if ! tmux list-sessions > /dev/null 2>&1; then
+            echo "Keine Tmux-Sessions mehr aktiv. Beende SSH-Agent..."
+            pkill -u "$USER" ssh-agent
+        fi
+    fi
+}
+
+# Beim Schließen einer Shell automatisch überprüfen
+trap stop_ssh_agent_if_no_tmux EXIT
