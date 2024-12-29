@@ -36,7 +36,7 @@ lspconfig.gopls.setup {
 lspconfig.html.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = { "html", "templ" },
+  filetypes = { "html", "templ", "react", "javascript" },
 }
 
 lspconfig.htmx.setup {
@@ -48,7 +48,7 @@ lspconfig.htmx.setup {
 lspconfig.tailwindcss.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+  filetypes = { "templ", "astro",  },
   settings = {
     tailwindCSS = {
       includeLanguages = {

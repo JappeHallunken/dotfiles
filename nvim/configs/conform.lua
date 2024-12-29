@@ -7,6 +7,9 @@ local options = {
     typescript = { "prettier" },
     go = { "gofmt" },
     json = { "prettier" },
+    js = { "prettier" },
+    jsx = { "prettier" },
+    javascriptreact = { "prettier" },
   },
 
   -- format_on_save = {
