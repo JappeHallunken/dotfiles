@@ -6,13 +6,16 @@
 local M = {}
 
 M.base46 = {
-  theme = "everforest_light",
-  theme_toggle = { "everforest_light", "everforest_light" },
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
-}
 
+	theme = "decay",
+	theme_toggle = { "flexoki-light", "decay" },
+	-- hl_override = {
+	-- 	Comment = { italic = true },
+	-- 	["@comment"] = { italic = true },
+	-- },
+}
+M.term = {
+	sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.3 },
+}
 
 return M

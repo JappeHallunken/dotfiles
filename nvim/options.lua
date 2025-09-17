@@ -4,12 +4,11 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 2
 vim.opt.scrolloff = 10
 vim.opt.statuscolumn = "%s %l %r"
-
 -- add yours here!
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
--- lua/custom/filetypes.lua
+--
 vim.filetype.add {
   extension = {
     templ = "templ",
