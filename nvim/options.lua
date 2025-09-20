@@ -16,3 +16,4 @@ vim.filetype.add {
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
+vim.g.copilot_no_tab_map = true
