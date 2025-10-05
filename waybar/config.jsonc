@@ -1,0 +1,202 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "clock",
+    "custom/weather",
+    "disk",
+    "memory",
+    "cpu",
+    "temperature",
+    "sway/mode",
+    "sway/scratchpad",
+    // "custom/media",
+    "custom/timer",
+    "sway/window"
+  ],
+  "modules-center": ["sway/workspaces"],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "idle_inhibitor",
+    "pulseaudio",
+    "network",
+    "keyboard-state",
+    "battery"
+  ],
+  "reload_style_on_change": true,
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "urgent": "",
+      "focused": "",
+      "active": "",
+      "default": ""
+    },
+    "persistant-workspaces": {
+      "*": [2, 3, 4, 5, 6]
+    }
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{icon} {name}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": [" ", ""],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%H:%M:%S}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+		"mode"          : "year",
+		"mode-mon-col"  : 4,
+		"weeks-pos"     : "right",
+		"on-scroll"     : 1,
+		"on-click-right": "mode",
+		"format": {
+			"months":     "<span color='#ffffff'><b>{}</b></span>",
+			"days":       "<span color='#eeeeee'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			"today":      "<span color='#ff3366'><b><u>{}</u></b></span>"
+		}
+	},
+	"actions": {
+		"on-click-right": "mode",
+		"on-scroll-up": "shift_up",
+		"on-scroll-down": "shift_down"
+	}
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "path": "/"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"]
+  },
+   "network": {
+        "format-wifi": "  {essid}({signalStrength}%)",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "tooltip-format": "󰔦 {ifname} via {gwaddr}",
+        "format-linked": "󰀦 {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr} "
+
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  // "custom/media": {
+  //   "format": "{icon} {}",
+  //   "return-type": "json",
+  //   "max-length": 40,
+  //   "format-icons": {
+  //     "spotify": "",
+  //     "default": "🎜"
+  //   },
+  //   "escape": true,
+  //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"  
+  // },
+  "custom/timer": {
+    "exec": "/home/jappe/.local/bin/waybar-timer.sh updateandprint",
+    "exec-on-event": true,
+    "return-type": "json",
+    "interval": 5,
+    "signal": 4,
+    "format": "{0} {icon} ",
+    "format-icons": {
+      "standby": "",
+      "running": "",
+      "paused": ""
+    },
+    "on-click": "/home/jappe/.local/bin/waybar-timer.sh new 25 'notify-send \"Zeit für eine Pause!\"'",
+    "on-click-middle": "/home/jappe/.local/bin/waybar-timer.sh cancel",
+    "on-click-right": "/home/jappe/.local/bin/waybar-timer.sh togglepause",
+    "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer abgelaufen.\"'",
+    "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 600,
+    "exec": "wttrbar --location Leipzig --lang de",
+    "return-type": "json"
+  },
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 24,
+    "tooltip": true
+    // "ellipsis": true
+  }
+}
