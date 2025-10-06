@@ -273,23 +273,24 @@ bindsym Mod4+Shift+b exec bemoji -t
 #bindsym $mod+Ctrl+b exec tlp bat && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 #bindsym $mod+Ctrl+a exec tlp ac && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 
-
-
+default_border pixel
+# default_floating_border pixel
+#
    
-smart_borders on
+smart_borders off
 smart_gaps on
 
 #######THEMING
 # Farbdefinitionen im Gruvbox-Stil
 set $bg #1d2021
-set $indicator #fa9c84
-set $text #ebdbb2
+set $indicator #dd0011
+set $text #ebfbbf
 set $child #282828
 set $border #bbbdf2
 # Dicke der Fensterrahmen
 set $swaywm_border_thickness 2
 # clas                  border      bg        text      indicator     child
-client.focused          $border       $bg       $text     $indicator    $child
+client.focused          #eeee99       $bg       $text     $indicator    $child
 client.focused_inactive #504945     $bg       $text     $indicator    $child
 client.unfocused        #000000     $bg       $text     $indicator    $child
 client.urgent           #ee2626     $bg       $text     $indicator    $child

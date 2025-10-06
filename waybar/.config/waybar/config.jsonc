@@ -12,9 +12,9 @@
     "sway/scratchpad",
     // "custom/media",
     "custom/timer",
-    "sway/window"
+    "sway/workspaces"
   ],
-  "modules-center": ["sway/workspaces"],
+  "modules-center": ["sway/window"],
   "modules-right": [
     "tray",
     "backlight",
@@ -195,7 +195,7 @@
   },
   "sway/window": {
     "format": "{title}",
-    "max-length": 24,
+    // "max-length": 42,
     "tooltip": true
     // "ellipsis": true
   }
