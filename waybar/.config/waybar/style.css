@@ -14,25 +14,27 @@ window#waybar {
 /* #custom-logo { */
 /*   padding: 0 10px; */
 /* } */
+.modules-left,
+.modules-right,
+.modules-center {
+  background: rgba(79, 43, 74, .75)
+}
 
 .modules-right {
   padding-left: 5px;
-  border-radius: .8rem 0 0 .8rem;
+  border-radius: 0.8rem 0 0 0.8rem;
   /* margin-top: 1px; */
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .modules-center {
   padding: 0 0px;
   /* margin-top: 1px; */
-  border-radius: .8rem;
-  background: rgba(0, 0, 0, 0.75);
+  border-radius: 0.8rem;
 }
 
 .modules-left {
-  border-radius: 0 .8rem .8rem 0;
+  border-radius: 0 0.8rem 0.8rem 0;
   /* margin-top: 1px; */
-  background: rgba(0, 0, 0, 0.5);
   padding-right: 5px;
 }
 
@@ -71,12 +73,12 @@ window#waybar {
 #workspaces button:hover {
   box-shadow: none; /* Remove predefined box-shadow */
   text-shadow: none; /* Remove predefined text-shadow */
-  background: rgba(0, 0, 0, 0.2); 
-
+  background: rgba(0, 0, 0, 0.2);
 }
 
-#clock, #window > * {
-  color: #def;
+#clock,
+#window > * {
+  color: #faf1ca;
 }
 
 #battery.charging {

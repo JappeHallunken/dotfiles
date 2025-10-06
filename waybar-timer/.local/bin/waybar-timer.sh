@@ -21,6 +21,7 @@ minutesLeft () { echo $(( ( $(secondsLeft)  + 59 ) / 60 )) ; }
 
 printExpiryTime () { dunstify -u low -r -12345 "Timer expires at $( date -d "$(secondsLeft) sec" +%H:%M)" ;}
 printPaused () { dunstify -u low -r -12345 "Timer paused" ; }
+printStopped () { dunstify -u low -r -12345 "Timer stopped" ; }
 removePrinting () { dunstify -C -12345 ; }
 
 updateTail () {
@@ -70,7 +71,7 @@ case $1 in
         echo "$(( $(secondsLeftWhenPaused) + ${2} ))" > /tmp/waybar-timer/paused
       else
         echo "$(( $(timerExpiry) + ${2} ))" > /tmp/waybar-timer/expiry
-        printExpiryTime
+        # printExpiryTime
       fi
     else
       exit 1
@@ -79,6 +80,7 @@ case $1 in
   cancel)
     killTimer
     removePrinting
+    printStopped
     ;;
   togglepause)
     if timerSet

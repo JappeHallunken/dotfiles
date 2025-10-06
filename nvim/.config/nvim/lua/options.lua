@@ -4,6 +4,8 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 2
 vim.opt.scrolloff = 10
 vim.opt.statuscolumn = "%s %l %r"
+vim.opt.title = true
+vim.opt.titlestring = "nvim: %F"
 -- add yours here!
 
 local o = vim.o

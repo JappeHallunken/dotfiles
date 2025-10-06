@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "decay",
-  theme_toggle = { "flexoki-light", "decay" },
+  theme = "one_light",
+  theme_toggle = { "one_light", "decay" },
 
   -- hl_override = {
   -- 	Comment = { italic = true },
