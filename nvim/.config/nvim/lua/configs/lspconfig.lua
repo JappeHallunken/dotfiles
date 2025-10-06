@@ -1,58 +1,51 @@
-require("nvchad.configs.lspconfig").defaults()
-
-local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
 
-local servers = { "html", "cssls" }
+local defaults = {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+}
 
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = nvlsp.on_attach,
-		on_init = nvlsp.on_init,
-		capabilities = nvlsp.capabilities,
-	})
+local cfg = vim.lsp.config
+local enable = vim.lsp.enable
+
+for _, server in ipairs({ "html", "cssls" }) do
+  cfg(server, defaults)
+  enable(server)
 end
 
-lspconfig.gopls.setup({
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod" },
-	root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-			-- Remove gofumpt = true from here. Handle it in null-ls.
-		},
-	},
-	on_attach = nvlsp.on_attach,
-	on_init = nvlsp.on_init,
-	capabilities = nvlsp.capabilities,
-})
+cfg("gopls", vim.tbl_deep_extend("force", defaults, {
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod" },
+  root_dir = vim.fs.root(0, { "go.mod", ".git" }),
+  settings = {
+    gopls = {
+      analyses = { unusedparams = true },
+      staticcheck = true,
+    },
+  },
+}))
+enable("gopls")
 
-lspconfig.templ.setup({
-	cmd = { "templ", "lsp" },
-	filetypes = { "templ" },
-	root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
-	on_attach = nvlsp.on_attach,
-	on_init = nvlsp.on_init,
-	capabilities = nvlsp.capabilities,
-	filetypes = { "html", "templ", "javascript" },
-})
+cfg("templ", vim.tbl_deep_extend("force", defaults, {
+  cmd = { "templ", "lsp" },
+  filetypes = { "html", "templ", "javascript" },
+  root_dir = vim.fs.root(0, { "go.mod", ".git" }),
+}))
+enable("templ")
 
-lspconfig.tailwindcss.setup({
-	on_attach = nvlsp.on_attach,
-	capabilities = nvlsp.capabilities,
-	filetypes = { "templ", "astro" },
-	settings = {
-		tailwindCSS = {
-			includeLanguages = {
-				templ = "html",
-			},
-		},
-	},
-})
+cfg("tailwindcss", vim.tbl_deep_extend("force", defaults, {
+  filetypes = { "templ", "astro" },
+  settings = {
+    tailwindCSS = {
+      includeLanguages = {
+        templ = "html",
+      },
+    },
+  },
+}))
+enable("tailwindcss")
+
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,

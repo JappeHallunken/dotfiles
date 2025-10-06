@@ -273,7 +273,7 @@ bindsym Mod4+Shift+b exec bemoji -t
 #bindsym $mod+Ctrl+b exec tlp bat && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 #bindsym $mod+Ctrl+a exec tlp ac && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 
-default_border pixel
+# default_border pixel
 # default_floating_border pixel
 #
    

@@ -12,9 +12,9 @@
     "sway/scratchpad",
     // "custom/media",
     "custom/timer",
-    "sway/workspaces"
+    "sway/window"
   ],
-  "modules-center": ["sway/window"],
+  "modules-center": ["sway/workspaces"],
   "modules-right": [
     "tray",
     "backlight",
