@@ -11,14 +11,14 @@
     "sway/mode",
     "sway/scratchpad",
     // "custom/media",
-    "custom/timer",
     "sway/window"
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
     "tray",
-    "backlight",
+    "custom/timer",
     "idle_inhibitor",
+    "backlight",
     "pulseaudio",
     "network",
     "keyboard-state",
@@ -59,9 +59,9 @@
     "format": "<span style=\"italic\">{}</span>"
   },
   "sway/scratchpad": {
-    "format": "{icon} {count}",
+    "format": "{icon} {count} ",
     "show-empty": false,
-    "format-icons": [" ", ""],
+    "format-icons": [" ", "  "],
     "tooltip": true,
     "tooltip-format": "{app}: {title}"
   },
@@ -195,7 +195,7 @@
   },
   "sway/window": {
     "format": "{title}",
-    // "max-length": 42,
+    "max-length": 30,
     "tooltip": true
     // "ellipsis": true
   }
