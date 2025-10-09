@@ -4,9 +4,9 @@
   "modules-left": [
     "clock",
     "custom/weather",
-    "disk",
-    "memory",
     "cpu",
+    "memory",
+    "disk",
     "temperature",
     "sway/mode",
     "sway/scratchpad",

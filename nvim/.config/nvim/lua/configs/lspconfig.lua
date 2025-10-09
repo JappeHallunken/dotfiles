@@ -1,4 +1,5 @@
 local nvlsp = require("nvchad.configs.lspconfig")
+nvlsp.defaults()
 
 local defaults = {
   on_attach = nvlsp.on_attach,
