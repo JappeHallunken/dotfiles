@@ -16,7 +16,12 @@ M.base46 = {
 }
 
 M.term = {
-     sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.3 },
-   }
+  sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.3 },
+}
 
+M.ui = {
+  tabufline = {
+    lazyload = false,
+  },
+}
 return M
