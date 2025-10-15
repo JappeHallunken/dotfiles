@@ -90,7 +90,7 @@ return {
   },
   {
     "github/copilot.vim",
-    lazy = false,
+    lazy = true,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -110,4 +110,66 @@ return {
     cmd = { "LiveServerStart", "LiveServerStop" },
     config = true,
   },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup {
+        chunk = {
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = "-",
+          },
+          enable = true, -- Chunk-Highlight aktivieren
+          style = {
+            { fg = "#7a823c" },
+          },
+          notify = false, -- keine Notifications
+          priority = 10, -- höher als indent, damit sichtbar
+          exclude_filetypes = {
+            "dashboard",
+            "aerial",
+            "NvimTree",
+            "packer",
+          },
+        },
+        line_num = {
+          enable = true,
+          style = "#7a823c",
+        },
+      }
+
+      -- toggle command
+      _G.hlchunk_enabled = true
+
+      vim.api.nvim_create_user_command("HlChunkToggle", function()
+        local chunk = require "hlchunk.mods.chunk"
+        local line_num = require "hlchunk.mods.line_num"
+
+        if _G.hlchunk_enabled then
+          chunk({}):disable()
+          line_num({}):disable()
+          _G.hlchunk_enabled = false
+        else
+          chunk({ style = { { fg = "#7a823c" } } }):enable()
+          line_num({ style = "#7a823c" }):enable()
+          _G.hlchunk_enabled = true
+        end
+      end, {})
+    end,
+  },
 }
+-- {
+--   "echasnovski/mini.nvim",
+--   lazy = false,
+--   version = false,
+--   config = function()
+--     require("mini.indentscope").setup {
+--       symbol = "│",
+--       options = { try_as_border = true },
+--     }
+--   end,
+-- },
