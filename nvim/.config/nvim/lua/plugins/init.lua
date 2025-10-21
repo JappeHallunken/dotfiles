@@ -126,7 +126,10 @@ return {
           enable = true, -- Chunk-Highlight aktivieren
           style = {
             { fg = "#7a823c" },
+            { fg = "#8a2916" },
           },
+          duration = 50,
+          delay = 500,
           notify = false, -- keine Notifications
           priority = 10, -- höher als indent, damit sichtbar
           exclude_filetypes = {
@@ -160,6 +163,10 @@ return {
         end
       end, {})
     end,
+  },
+  {
+    "Exafunction/windsurf.vim",
+    event = "BufEnter",
   },
 }
 -- {
