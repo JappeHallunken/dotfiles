@@ -26,12 +26,12 @@ map("n", "<M-P>", ":Copilot panel<CR>", { desc = "Open Copilot panel" })
 
 vim.g.codeium_disable_bindings = 1
 
-map(
-  "i",
-  "<M-ö>",
-  "<Cmd>call codeium#CycleOrComplete()<CR>",
-  {desc = "Windsurf show suggestions and cycle" }
-)
+map("i", "<M-ö>", "<Cmd>call codeium#CycleOrComplete()<CR>", { desc = "Windsurf show suggestions and cycle" })
 
-map('i', '<M-ä>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")<M-l>
+map("i", "<M-ä>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+
+map("n", "<leader>tr", function()
+  require("nvim-tree.api").tree.change_root_to_node()
+end, { desc = "nvim-tree: set root to selected directory" })
