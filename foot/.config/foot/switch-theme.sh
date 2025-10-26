@@ -3,8 +3,8 @@
 
 # Define the themes and foot configuration path
 THEMES=(
-    "/usr/share/foot/themes/tempus-dawn"
-    "/usr/share/foot/themes/tempus-future"
+    "/usr/share/foot/themes/tempus-totus"
+    "/usr/share/foot/themes/tempus-winter"
 )
 FOOT_CONFIG="$HOME/.config/foot/foot.ini"
 

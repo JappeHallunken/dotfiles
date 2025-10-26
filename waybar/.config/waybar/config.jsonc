@@ -113,11 +113,11 @@
   },
   "temperature": {
     "critical-threshold": 80,
-    "format": "{icon} {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", ""]
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon}  {percent}%",
     "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
   },
   "battery": {
@@ -126,14 +126,14 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
+    "format": "{icon} {capacity}%",
     "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-alt": "{icon} {time}",
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"]
   },
    "network": {
-        "format-wifi": "  {essid}({signalStrength}%)",
+        "format-wifi": "   {essid}({signalStrength}%)",
         "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": "󰔦 {ifname} via {gwaddr}",
         "format-linked": "󰀦 {ifname} (No IP)",
@@ -142,10 +142,10 @@
 
   },
   "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
+    "format": "{icon}  {volume}% {format_source}",
     "format-muted": " {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": " ",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -174,7 +174,7 @@
     "return-type": "json",
     "interval": 5,
     "signal": 4,
-    "format": "{0} {icon} ",
+    "format": "{0} {icon} ",
     "format-icons": {
       "standby": "",
       "running": "",

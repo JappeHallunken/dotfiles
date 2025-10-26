@@ -263,7 +263,10 @@ bindsym  $mod+Ctrl+h exec systemctl hibernate
 
 
 #bemoji
-bindsym Mod4+Shift+b exec bemoji -t
+bindsym Mod4+Shift+b exec bemoji -ghgh
+
+# power off all displays
+bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
 
 
 ### toggle idle_inhibatior
@@ -283,14 +286,14 @@ smart_gaps on
 #######THEMING
 # Farbdefinitionen im Gruvbox-Stil
 set $bg #1d2021
-set $indicator #dd0011
+set $indicator #dd6611
 set $text #ebfbbf
 set $child #282828
 set $border #bbbdf2
 # Dicke der Fensterrahmen
 set $swaywm_border_thickness 2
 # clas                  border      bg        text      indicator     child
-client.focused          #eeee99       $bg       $text     $indicator    $child
+client.focused          #eeeecc       $bg       $text     $indicator    $child
 client.focused_inactive #504945     $bg       $text     $indicator    $child
 client.unfocused        #000000     $bg       $text     $indicator    $child
 client.urgent           #ee2626     $bg       $text     $indicator    $child

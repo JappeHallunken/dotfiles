@@ -1,8 +1,9 @@
 * {
-  font-family: "GoMonoNerdFont", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "GoMono Nerd Font", "Tinos Nerd Font", Roboto, Helvetica, Arial,
+    sans-serif;
   font-size: 14px;
   border: none;
-  min-height: 25px;
+  min-height: 22px;
   color: white;
 }
 
@@ -17,7 +18,7 @@ window#waybar {
 .modules-left,
 .modules-right,
 .modules-center {
-  background: rgba(79, 43, 74, .75)
+  background: rgba(79, 43, 74, 0.45);
 }
 
 .modules-right {
@@ -57,17 +58,16 @@ window#waybar {
 #window,
 #workspaces,
 #clock {
-  padding: 0 8px;
+  padding: 0 7px;
 }
-#pulseaudio {
-  padding-top: 3px;
-}
+/* #pulseaudio { */
+/*   padding-top: 1px; */
+/* } */
 
 #temperature.critical,
 #pulseaudio.muted {
   /* color: #000; */
   background-color: rgba(0, 0, 0, 0.5);
-  padding-top: 0;
 }
 
 #workspaces button:hover {
@@ -185,6 +185,6 @@ window#waybar {
 }
 .timer {
   color: #efefef;
-  margin: 0 0px;
+  margin: 0 2px;
   padding: 0 5px;
 }
