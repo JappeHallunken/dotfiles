@@ -58,7 +58,8 @@ window#waybar {
 #window,
 #workspaces,
 #clock {
-  padding: 0 .1rem;
+  padding: 0 .4rem;
+  border-right: 2px solid rgba(1, 1, 1, 0.3);
 }
 /* #pulseaudio { */
 /*   padding-top: 1px; */
@@ -181,7 +182,7 @@ window#waybar {
 }
 
 #mpris {
-  padding: 0 .3rem;
+  padding: 0 0 0 .3rem;
 }
 
 #scratchpad.empty {
