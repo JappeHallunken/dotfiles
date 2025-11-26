@@ -61,6 +61,10 @@ window#waybar {
   padding: 0 .4rem;
   border-right: 2px solid rgba(1, 1, 1, 0.3);
 }
+
+#mpris, #workspaces, #battery {
+  border-right: none;
+}
 /* #pulseaudio { */
 /*   padding-top: 1px; */
 /* } */
