@@ -103,3 +103,5 @@ stop_ssh_agent_if_no_tmux() {
 
 # Beim Schließen einer Shell automatisch überprüfen
 trap stop_ssh_agent_if_no_tmux EXIT
+
+eval "$(notes --completion-script-bash)"

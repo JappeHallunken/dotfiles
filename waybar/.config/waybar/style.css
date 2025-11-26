@@ -58,7 +58,7 @@ window#waybar {
 #window,
 #workspaces,
 #clock {
-  padding: 0 7px;
+  padding: 0 .1rem;
 }
 /* #pulseaudio { */
 /*   padding-top: 1px; */
@@ -176,8 +176,12 @@ window#waybar {
   background: rgba(0, 0, 0, 0.2);
 }
 
-#scratchpad {
+#scratchpad, #mpris {
   background: rgba(0, 0, 0, 0.2);
+}
+
+#mpris {
+  padding: 0 .3rem;
 }
 
 #scratchpad.empty {

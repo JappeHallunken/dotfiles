@@ -3,15 +3,16 @@
   "position": "top",
   "modules-left": [
     "clock",
+    "sway/scratchpad",
     "custom/weather",
     "cpu",
     "memory",
     "disk",
     "temperature",
     "sway/mode",
-    "sway/scratchpad",
+    "mpris"
     // "custom/media",
-    "sway/window"
+    //"sway/window"
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
@@ -157,6 +158,20 @@
     },
     "on-click": "pavucontrol"
   },
+  "mpris": {
+    "max-length": 30,
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+	 //"ignored-players": ["firefox"]
+  },
+
   // "custom/media": {
   //   "format": "{icon} {}",
   //   "return-type": "json",
