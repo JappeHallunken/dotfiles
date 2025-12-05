@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 -- add yours here
 
@@ -14,10 +14,10 @@ map("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })
 -- copilot mappings
 vim.g.copilot_no_tab_map = true
 map(
-  "i",
-  "<M-g>",
-  "copilot#Accept('<CR>')",
-  { silent = true, expr = true, replace_keycodes = false, desc = "Accept Copilot suggestion" }
+	"i",
+	"<M-g>",
+	"copilot#Accept('<CR>')",
+	{ silent = true, expr = true, replace_keycodes = false, desc = "Accept Copilot suggestion" }
 )
 map("i", "<M-.>", "<Plug>(copilot-next)", { desc = "Next Copilot suggestion" })
 map("i", "<M-,>", "<Plug>(copilot-previous)", { desc = "Previous Copilot suggestion" })
@@ -29,9 +29,9 @@ vim.g.codeium_disable_bindings = 1
 map("i", "<M-ö>", "<Cmd>call codeium#CycleOrComplete()<CR>", { desc = "Windsurf show suggestions and cycle" })
 
 map("i", "<M-ä>", function()
-  return vim.fn["codeium#Accept"]()
+	return vim.fn["codeium#Accept"]()
 end, { expr = true, silent = true })
 
 map("n", "<leader>tr", function()
-  require("nvim-tree.api").tree.change_root_to_node()
+	require("nvim-tree.api").tree.change_root_to_node()
 end, { desc = "nvim-tree: set root to selected directory" })

@@ -19,8 +19,8 @@ return {
     },
   },
   {
-    "sho-87/kanagawa-paper.nvim",
-    lazy = true,
+    "thesimonho/kanagawa-paper.nvim",
+    lazy = false,
     priority = 1000,
     opts = {},
   },
@@ -167,6 +167,15 @@ return {
   {
     "Exafunction/windsurf.vim",
     event = "BufEnter",
+  },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = "GitLink",
+    opts = {},
+    keys = {
+      { "<leader>gy", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank git link" },
+      { "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+    },
   },
 }
 -- {
