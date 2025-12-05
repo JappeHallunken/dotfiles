@@ -4,7 +4,7 @@
   font-size: 14px;
   border: none;
   min-height: 22px;
-  color: white;
+  color: #DCD7BA;
 }
 
 window#waybar {
@@ -16,10 +16,15 @@ window#waybar {
 /*   padding: 0 10px; */
 /* } */
 .modules-left,
-.modules-right,
-.modules-center {
-  background: rgba(79, 43, 74, 0.45);
+.modules-right {
+  background: #223249;
 }
+
+.modules-center {
+background: #A52123;
+}
+
+
 
 .modules-right {
   padding-left: 5px;
@@ -83,7 +88,7 @@ window#waybar {
 
 #clock,
 #window > * {
-  color: #faf1ca;
+  color: #E6C384;
 }
 
 #battery.charging {
