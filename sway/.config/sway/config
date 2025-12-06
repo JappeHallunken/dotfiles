@@ -342,6 +342,9 @@ for_window [title="Entwicklerwerkzeuge" app_id="org.mozilla.firefox"] \
 for_window [title="Entwicklerwerkzeuge" app_id="firefox-aurora"] \
     floating enable
 
+for_window [title="umbenennen" app_id="thunar"] \
+    floating enable
+
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 exec gammastep
