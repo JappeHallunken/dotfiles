@@ -19,6 +19,17 @@ return {
     },
   },
   {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup {
+        transparent = false,
+        commentStyle = { italic = true },
+        keywordStyle = { italic = false },
+      }
+      vim.cmd "colorscheme kanagawa-dragon"
+    end,
+  },
+  {
     "thesimonho/kanagawa-paper.nvim",
     lazy = false,
     priority = 1000,

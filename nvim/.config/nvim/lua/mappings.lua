@@ -1,6 +1,13 @@
 require("nvchad.mappings")
 
 -- add yours here
+--
+local function safe_colorscheme(name)
+  vim.cmd("silent! colorscheme " .. name)  -- Theme laden
+  vim.cmd("highlight IblChar guifg=#54546D gui=nocombine")
+  vim.cmd("highlight IblIndent guifg=#54546D gui=nocombine")
+  require("ibl").setup()
+end
 
 local map = vim.keymap.set
 
@@ -35,3 +42,26 @@ end, { expr = true, silent = true })
 map("n", "<leader>tr", function()
 	require("nvim-tree.api").tree.change_root_to_node()
 end, { desc = "nvim-tree: set root to selected directory" })
+
+map("n", "<leader>th", function()
+  require("telescope.builtin").colorscheme({
+    attach_mappings = function(prompt_bufnr, m)
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
+
+      m("i", "<CR>", function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        safe_colorscheme(selection.value)
+      end)
+
+      m("n", "<CR>", function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        safe_colorscheme(selection.value)
+      end)
+
+      return true
+    end
+  })
+end, { desc = "Theme Picker (safe)" })
