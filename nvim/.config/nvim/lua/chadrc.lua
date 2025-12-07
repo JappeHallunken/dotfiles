@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
   theme = "kanagawa",
-  theme_toggle = { "kanagawa", "kanagawa" },
+  theme_toggle = { "kanagawa", "flex-light" },
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -24,11 +24,5 @@ M.ui = {
     lazyload = false,
   },
 }
-
--- ########################################
--- IBL Highlight Fix für Kanagawa / Theme-Wechsel
--- ########################################
-vim.cmd("highlight IblChar guifg=#54546D gui=nocombine")
-vim.cmd("highlight IblIndent guifg=#54546D gui=nocombine")
 
 return M

@@ -21,7 +21,8 @@ window#waybar {
 }
 
 .modules-center {
-background: #938056;
+background: #935056;
+  border: 1px solid #333;
 }
 
 
