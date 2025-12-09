@@ -4,8 +4,6 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 2
 vim.opt.scrolloff = 10
 vim.opt.statuscolumn = "%s %l %r"
-vim.opt.title = true
-vim.opt.titlestring = "nvim: %F"
 -- add yours here!
 
 local o = vim.o
@@ -19,3 +17,6 @@ vim.filetype.add {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
 vim.g.copilot_no_tab_map = true
+
+vim.opt.number = true
+vim.opt.relativenumber = true

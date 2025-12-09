@@ -47,6 +47,12 @@ cfg("tailwindcss", vim.tbl_deep_extend("force", defaults, {
 }))
 enable("tailwindcss")
 
+cfg("bashls", vim.tbl_deep_extend("force", defaults, {
+  filetypes = { "sh", "bash" },
+  root_dir = vim.fs.root(0, { ".git", ".bashrc" }),
+}))
+enable("bashls")
+
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,
