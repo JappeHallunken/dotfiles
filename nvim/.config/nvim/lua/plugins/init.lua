@@ -113,6 +113,7 @@ return {
 	{
 		"Exafunction/windsurf.vim",
 		event = "BufEnter",
+    lazy = true,
 	},
 	{
 		"linrongbin16/gitlinker.nvim",
