@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
   theme = "kanagawa",
-  theme_toggle = { "kanagawa", "flex-light" },
+  theme_toggle = { "kanagawa", "flexoki-light" },
 
   hl_override = {
   	Comment = { italic = true },
@@ -24,5 +24,4 @@ M.ui = {
     lazyload = false,
   },
 }
-
 return M
