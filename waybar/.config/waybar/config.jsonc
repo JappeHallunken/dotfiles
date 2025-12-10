@@ -3,7 +3,6 @@
   "position": "top",
   "modules-left": [
     "clock",
-    "sway/scratchpad",
     "custom/weather",
     "cpu",
     "memory",
@@ -16,6 +15,7 @@
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
+    "sway/scratchpad",
     "tray",
     "custom/timer",
     "idle_inhibitor",
