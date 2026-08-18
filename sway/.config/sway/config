@@ -80,6 +80,9 @@ input "1267:12918:ELAN07B9:00_04F3:3276_Touchpad" {
     natural_scroll enabled
     accel_profile flat
     scroll_factor .5
+    dwt enabled
+    tap enabled
+    tap_button_map lrm
   }
 input "2362:9488:PixArt_USB_Optical_Mouse" {
     natural_scroll disabled
@@ -129,7 +132,7 @@ input "2362:9488:PixArt_USB_Optical_Mouse" {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'bash -c "swaymsg exit"'
   
 # Shutdown
 
@@ -264,7 +267,10 @@ bindsym  $mod+Ctrl+h exec systemctl hibernate
 
 
 #bemoji
-bindsym Mod4+Shift+b exec bemoji -ghgh
+bindsym $mod+period exec rofimoji --selector rofi
+
+#unicode picker
+bindsym $mod+u exec ~/.local/bin/unicode-picker
 
 # power off all displays
 bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
@@ -324,27 +330,49 @@ client.background       $bg
 # important to make the magic work. And if you want to learn the secret behind
 # the trick, it's all in the `wordexp(3)`.
 
-for_window [app_id="firefox" title="Bild-im-Bild"] \
+for_window [title="Bild-im-Bild"] \
     floating enable, move position 100 100, sticky enable, border none
 
 for_window [app_id="qalculate" title="Qalculate!"] \
     floating enable, border normal, move position cursor
 
-for_window [title="Bitwarden – Mozilla Firefox" ]\
-    floating enable
+for_window [title="Bitwarden" ]\
+    floating enable, focus disable
 
 for_window [app_id="blueman-manager" title="Bluetooth-Geräte"] \
     floating enable
 
-for_window [title="Entwicklerwerkzeuge" app_id="org.mozilla.firefox"] \
-    floating enable
-
-for_window [title="Entwicklerwerkzeuge" app_id="firefox-aurora"] \
-    floating enable
+for_window [app_id="waterfox" title="Entwicklerwerkzeuge"] \
+    floating enable, focus enable, move position center
 
 for_window [title="umbenennen" app_id="thunar"] \
     floating enable
 
+for_window [app_id="opencloud"] \
+    floating enable, resize set 50 ppt 50 ppt
+
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 exec gammastep
+
+# Start swayr daemon
+exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug /home/jappe/.cargo/bin/swayrd > /tmp/swayrd.log 2>&1
+
+exec /usr/local/bin/fusuma
+
+bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
+  -p "Websuche" \
+  --center \
+  --width-factor 0.4 --line-height 34 \
+  --fn "monospace 12" \
+  --tb "#1e1e2e" \
+  --tf "#cdd6f4" \
+  --fb "#1e1e2e" \
+  --ff "#cdd6f4" \
+  --nb "#1e1e2e" \
+  --nf "#cdd6f4" \
+  --border 2 -R 9\
+  --bdr "#cca455" \
+); \
+[ -n "$query" ] && waterfox "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
+
