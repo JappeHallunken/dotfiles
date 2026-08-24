@@ -15,6 +15,6 @@ ring-clear-color=#0000005F
 ring-ver-color=#dfee54
 ring-wrong-color=#fa2233
 separator-color=#000000
-image=/usr/share/backgrounds/fedora_bg.jpg
+image=/usr/share/backgrounds/background.jpg
 indicator-radius=80
-
+scaling=fit

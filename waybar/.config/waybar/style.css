@@ -4,11 +4,11 @@
   font-size: 14px;
   border: none;
   min-height: 22px;
-  color: #DCD7BA;
+  color: #dcd7ba;
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(0,0,0,0.6);
   margin: 5px;
 }
 
@@ -17,15 +17,13 @@ window#waybar {
 /* } */
 .modules-left,
 .modules-right {
-  background: #223249;
+  background: rgba(34, 50, 73, 0.5);
 }
 
 .modules-center {
-background: #935056;
+  background: rgba(147, 80, 86, 0.5);
   border: 1px solid #333;
 }
-
-
 
 .modules-right {
   padding-left: 5px;
@@ -64,11 +62,13 @@ background: #935056;
 #window,
 #workspaces,
 #clock {
-  padding: 0 .4rem;
+  padding: 0 0.4rem;
   border-right: 2px solid rgba(1, 1, 1, 0.3);
 }
 
-#mpris, #workspaces, #battery {
+#mpris,
+#workspaces,
+#battery {
   border-right: none;
 }
 /* #pulseaudio { */
@@ -89,7 +89,7 @@ background: #935056;
 
 #clock,
 #window > * {
-  color: #E6C384;
+  color: #e6c384;
 }
 
 #battery.charging {
@@ -187,12 +187,13 @@ background: #935056;
   background: rgba(0, 0, 0, 0.2);
 }
 
-#scratchpad, #mpris {
+#scratchpad,
+#mpris {
   background: rgba(0, 0, 0, 0.2);
 }
 
 #mpris {
-  padding: 0 0 0 .3rem;
+  padding: 0 0 0 0.3rem;
 }
 
 #scratchpad.empty {
