@@ -283,7 +283,7 @@ bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
 #bindsym $mod+Ctrl+b exec tlp bat && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 #bindsym $mod+Ctrl+a exec tlp ac && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 
-# default_border pixel
+default_border pixel 0
 # default_floating_border pixel
 #
    
@@ -298,7 +298,7 @@ set $text #ebfbbf
 set $child #282828
 set $border #bbbdf2
 # Dicke der Fensterrahmen
-set $swaywm_border_thickness 2
+set $swaywm_border_thickness 0
 # clas                  border      bg        text      indicator     child
 client.focused          #eeeecc       $bg       $text     $indicator    $child
 client.focused_inactive #504945     $bg       $text     $indicator    $child
@@ -342,7 +342,7 @@ for_window [title="Bitwarden" ]\
 for_window [app_id="blueman-manager" title="Bluetooth-Geräte"] \
     floating enable
 
-for_window [app_id="waterfox" title="Entwicklerwerkzeuge"] \
+for_window [app_id="zen" title="Entwicklerwerkzeuge"] \
     floating enable, focus enable, move position center
 
 for_window [title="umbenennen" app_id="thunar"] \
@@ -350,6 +350,8 @@ for_window [title="umbenennen" app_id="thunar"] \
 
 for_window [app_id="opencloud"] \
     floating enable, resize set 50 ppt 50 ppt
+
+for_window [class=".*"] border pixel 0
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
@@ -374,5 +376,5 @@ bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
   --border 2 -R 9\
   --bdr "#cca455" \
 ); \
-[ -n "$query" ] && waterfox "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
+[ -n "$query" ] && zen "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
 
