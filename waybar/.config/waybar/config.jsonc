@@ -156,7 +156,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "~/.local/bin/pavucontrol-darkman"
   },
   "mpris": {
     "max-length": 30,

@@ -351,6 +351,8 @@ for_window [title="umbenennen" app_id="thunar"] \
 for_window [app_id="opencloud"] \
     floating enable, resize set 50 ppt 50 ppt
 
+for_window [class=".*"] border pixel 0
+
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
