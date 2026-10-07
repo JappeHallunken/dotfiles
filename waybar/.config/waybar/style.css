@@ -1,20 +1,44 @@
 * {
+  /* all: initial; */
   font-family: "GoMono Nerd Font", "Tinos Nerd Font", Roboto, Helvetica, Arial,
     sans-serif;
   font-size: 14px;
   border: none;
   min-height: 22px;
-  color: #dcd7ba;
+  color: #ffeedd;
 }
 
-window#waybar {
-  background: rgba(0,0,0,0.6);
+window#waybar,
+tooltip {
+  background: rgba(0, 0, 0, 0.8);
   margin: 5px;
 }
 
-/* #custom-logo { */
-/*   padding: 0 10px; */
-/* } */
+tooltip box,
+tooltip label {
+  margin: 0;
+  padding: 1px 1px;
+  min-height: 0;
+  min-width: 0;
+}
+
+tooltip {
+  margin: 0;
+  padding: 0;
+}
+
+menuitem {
+  background: transparent;
+  border-radius: 0.2em;
+}
+menuitem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+separator {
+  background: rgba(122, 122, 122, 0.8);
+  min-height: 5px;
+}
+
 .modules-left,
 .modules-right {
   background: rgba(34, 50, 73, 0.5);
@@ -27,18 +51,18 @@ window#waybar {
 
 .modules-right {
   padding-left: 5px;
-  border-radius: 0.8rem 0 0 0.8rem;
+  border-radius: 0.6rem 0 0 0.6rem;
   /* margin-top: 1px; */
 }
 
 .modules-center {
   padding: 0 0px;
   /* margin-top: 1px; */
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
 }
 
 .modules-left {
-  border-radius: 0 0.8rem 0.8rem 0;
+  border-radius: 0 0.6rem 0.6rem 0;
   /* margin-top: 1px; */
   padding-right: 5px;
 }
@@ -82,14 +106,14 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  box-shadow: none; /* Remove predefined box-shadow */
-  text-shadow: none; /* Remove predefined text-shadow */
-  background: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  text-shadow: none;
+  background: transparent;
 }
 
 #clock,
 #window > * {
-  color: #e6c384;
+  color: rgb(255, 255, 200);
 }
 
 #battery.charging {
