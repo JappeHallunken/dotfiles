@@ -283,8 +283,8 @@ bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
 #bindsym $mod+Ctrl+b exec tlp bat && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 #bindsym $mod+Ctrl+a exec tlp ac && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 
-default_border  pixel 0
-# default_floating_border pixel
+default_border pixel 0
+default_floating_border pixel 1
 #
    
 smart_borders on
@@ -352,6 +352,7 @@ for_window [app_id="opencloud"] \
     floating enable, resize set 50 ppt 50 ppt
 
 for_window [class=".*"] border pixel 0
+for_window [class=".*" floating] border pixel 1
 
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'

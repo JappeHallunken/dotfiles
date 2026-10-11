@@ -37,7 +37,25 @@ menuitem:hover {
 separator {
   background: rgba(122, 122, 122, 0.8);
   min-height: 5px;
+  border-radius: .3em;
 }
+
+
+/* Waybar-Popovers und Menüs dunkel darstellen */
+menu,
+menuitem,
+popover,
+popover contents {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+/* Hover-Zustand */
+menuitem:hover {
+    background-color: #444444;
+    color: #ffffff;
+}
+
 
 .modules-left,
 .modules-right {
