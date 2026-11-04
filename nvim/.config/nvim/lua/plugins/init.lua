@@ -140,6 +140,17 @@ return {
       { "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
     },
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-mini/mini.icons",
+    },
+    ft = { "markdown" },
+    opts = {
+      enabled = true,
+    },
+  },
 }
 -- {
 --   "echasnovski/mini.nvim",
