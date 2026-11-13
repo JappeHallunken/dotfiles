@@ -16,6 +16,7 @@ set $right l
 # Your preferred terminal emulator
 # Recommends: foot
 set $term foot
+set $term sh -c 'if [ "$(darkman get)" = dark ]; then foot; else foot --override=initial-color-theme=light; fi'
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -105,6 +106,9 @@ input type:keyboard {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # toggle dark/light mode system wide
+    bindsym $mod+Shift+t exec darkman toggle
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -249,10 +253,6 @@ bindsym $mod+r mode "resize"
 
 ###snipping tool binding ####
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy 
-
-# Custom timer hotkey
-bindsym $mod+Ctrl+t exec --no-startup-id /home/jappe/.config/foot/switch-theme.sh
-
 ### hibernate
 bindsym  $mod+Ctrl+h exec systemctl hibernate
 
