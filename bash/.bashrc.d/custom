@@ -69,39 +69,18 @@ alias air='~/go/bin/air'
 alias sunvim='sudo -E bash -c "export HOME=$(eval echo ~$SUDO_USER) && nvim"'
 export SSH_ASKPASS=
 
+# SSH-Agent gemeinsam für alle Shells verwenden
+if [ -z "$SSH_AUTH_SOCK" ] || ! test -S "$SSH_AUTH_SOCK"; then
+    if [ -f "$HOME/.ssh-agent-info" ]; then
+        eval "$(cat "$HOME/.ssh-agent-info")"
+    fi
 
-if [ -n "$TMUX" ]; then
     if [ -z "$SSH_AUTH_SOCK" ] || ! test -S "$SSH_AUTH_SOCK"; then
-        if [ -f "$HOME/.ssh-agent-info" ]; then
-            # SSH-Agent-Info laden
-            eval "$(cat $HOME/.ssh-agent-info)"
-            # Prüfen, ob der SSH-Socket gültig ist
-            if ! test -S "$SSH_AUTH_SOCK"; then
-                echo "Ungültiger SSH-Agent-Socket, starte SSH-Agent neu..."
-                ssh-agent -s | grep -v '^Agent' > "$HOME/.ssh-agent-info"
-                eval "$(cat $HOME/.ssh-agent-info)"
-                ssh-add ~/.ssh/id_ed25519
-            fi
-        else
-            # Neuen SSH-Agent starten und Info speichern
-            ssh-agent -s | grep -v '^Agent' > "$HOME/.ssh-agent-info"
-            eval "$(cat $HOME/.ssh-agent-info)"
-            ssh-add ~/.ssh/id_ed25519
-        fi
+        eval "$(ssh-agent -s)" >/dev/null
+        printf 'export SSH_AUTH_SOCK=%q\nexport SSH_AGENT_PID=%q\n' \
+            "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$HOME/.ssh-agent-info"
+        ssh-add "$HOME/.ssh/id_ed25519"
     fi
 fi
 
-stop_ssh_agent_if_no_tmux() {
-    if [ -z "$TMUX" ]; then
-        # Prüfen, ob noch Tmux-Sessions aktiv sind
-        if ! tmux list-sessions > /dev/null 2>&1; then
-            echo "Keine Tmux-Sessions mehr aktiv. Beende SSH-Agent..."
-            pkill -u "$USER" ssh-agent
-        fi
-    fi
-}
-
-# Beim Schließen einer Shell automatisch überprüfen
-trap stop_ssh_agent_if_no_tmux EXIT
-
-eval "$(notes --completion-script-bash)"
+eval "$(/home/jappe/go/bin/notes --completion-script-bash)"
