@@ -37,10 +37,13 @@ return {
     },
   },
   {
-    "thesimonho/kanagawa-paper.nvim",
+    "thesimonho/kanagawa-paper",
+    branch = "neovim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    config = function()
+      require("kanagawa-paper").setup {}
+    end,
   },
   {
     "NeogitOrg/neogit",
@@ -110,15 +113,9 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-      },
-    },
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
   },
   {
     "barrett-ruth/live-server.nvim",
@@ -143,9 +140,13 @@ return {
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
-
-    -- Completion for `blink.cmp`
-    -- dependencies = { "saghen/blink.cmp" },
+    opts = {
+      preview = {
+        condition = function()
+          return nil
+        end,
+      },
+    },
   },
 }
 -- {
