@@ -25,7 +25,7 @@ set $rofi_cmd rofi
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd -show combi -combi-modes drun #run -modes combi
+set $menu $rofi_cmd -show combi -combi-modes "drun,run" #run -modes combi
 
 ### Output configuration
 #
@@ -34,7 +34,6 @@ set $menu $rofi_cmd -show combi -combi-modes drun #run -modes combi
 
 output * bg /usr/share/backgrounds/fedora.jpg fit
 
-workspace 1 output eDP-1
 #output HDMI-A-1 bg /usr/share/backgrounds/default.png fill
 
 #output HDMI-A-1 pos 0 0 res 1920x1080 
@@ -79,8 +78,9 @@ input * {
 
 input "1267:12918:ELAN07B9:00_04F3:3276_Touchpad" {
     natural_scroll enabled
-    accel_profile flat
-    scroll_factor .5
+    accel_profile adaptive
+    pointer_accel .4
+    scroll_factor .9
     dwt enabled
     tap enabled
     tap_button_map lrm
@@ -91,11 +91,11 @@ input "1267:12918:ELAN07B9:00_04F3:3276_Touchpad" {
 #     accel_profile flat
 #     scroll_factor .5
 #   }
-input type:keyboard {
-    xkb_layout de
-    xkb_model pc105
-    xkb_options caps:escape
-}
+# input type:keyboard {
+#     xkb_layout de
+#     xkb_model pc105
+#     xkb_options caps:escape
+# }
 
 
 input "1133:16468:Logitech_Wireless_Mouse" {
@@ -131,7 +131,7 @@ input "1133:16468:Logitech_Wireless_Mouse" {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+c reload; exec kanshictl reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'bash -c "swaymsg exit"'
@@ -379,3 +379,4 @@ bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
 [ -n "$query" ] && zen "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
 
 # exec kanshi
+include monitors.conf
