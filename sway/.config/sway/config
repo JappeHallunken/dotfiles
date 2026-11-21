@@ -358,7 +358,8 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 exec gammastep
 
 # Start swayr daemon
-exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug /home/jappe/.cargo/bin/swayrd > /tmp/swayrd.log 2>&1
+exec /home/jappe/.cargo/bin/swayrd
+# exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug /home/jappe/.cargo/bin/swayrd > /tmp/swayrd.log 2>&1
 
 exec /usr/local/bin/fusuma
 
@@ -379,4 +380,4 @@ bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
 [ -n "$query" ] && zen "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
 
 # exec kanshi
-include monitors.conf
+include workspaces.conf
