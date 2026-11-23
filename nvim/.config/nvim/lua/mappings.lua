@@ -35,3 +35,9 @@ end, { expr = true, silent = true })
 map("n", "<leader>tr", function()
 	require("nvim-tree.api").tree.change_root_to_node()
 end, { desc = "nvim-tree: set root to selected directory" })
+
+
+-- Theme
+map("n", "<leader>tt", function()
+  require("base46").toggle_theme()
+end, { desc = "Toggle theme" })
