@@ -3,23 +3,22 @@
   "position": "top",
   "modules-left": [
     "clock",
-    "custom/weather",
     "cpu",
     "memory",
     "disk",
     "temperature",
     "sway/mode",
-    "mpris"
+    "mpris",
+    "custom/timer",
+    "idle_inhibitor",
+    "backlight",
+    "sway/scratchpad"
     // "custom/media",
     //"sway/window"
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
-    "sway/scratchpad",
     "tray",
-    "custom/timer",
-    "idle_inhibitor",
-    "backlight",
     "pulseaudio",
     "network",
     "keyboard-state",
@@ -200,13 +199,6 @@
     "on-click-right": "/home/jappe/.local/bin/waybar-timer.sh togglepause",
     "on-scroll-up": "/home/jappe/.local/bin/waybar-timer.sh increase 60 || /home/jappe/.local/bin/waybar-timer.sh new 1 'notify-send -u critical \"Timer abgelaufen.\"'",
     "on-scroll-down": "/home/jappe/.local/bin/waybar-timer.sh increase -60"
-  },
-  "custom/weather": {
-    "format": "{}°",
-    "tooltip": true,
-    "interval": 600,
-    "exec": "wttrbar --location Leipzig --lang de",
-    "return-type": "json"
   },
   "sway/window": {
     "format": "{title}",

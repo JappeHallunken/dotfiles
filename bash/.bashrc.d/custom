@@ -7,20 +7,20 @@
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors)"
-alias ls='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
+# alias ls='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
 #
 # Some more alias to avoid making mistakes:
-alias rm='rm -I'
-alias cp='cp -i'
-alias mv='mv -i'
+# alias rm='rm -I'
+# alias cp='cp -i'
+# alias mv='mv -i'
 export PS1="\[\e[35m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[93m\]\\$\[\e[m\] "
-alias upev='sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y'
+# alias upev='sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y'
 alias c='clear'
 
 ## get rid of command not found ##
 alias cd..='cd ..'
- 
+
 ## a quick way to get out of current directory ##
 alias ..='cd ..'
 alias ...='cd ../../../'
@@ -48,10 +48,10 @@ alias wget='wget -c'
 alias mkdir="mkdir -pv"
 
 ##ncdu as du
-alias du="ncdu"
+# alias du="ncdu"
 
 ##check all running services
-alias whatsup='service --status-all'  
+alias whatsup='service --status-all'
 
 ##Debian doesnt have the -ll- alias created by default, like Ubuntu.
 alias ll='ls -lahF'
@@ -59,11 +59,6 @@ alias ll='ls -lahF'
 ##cleaner looking df
 alias df="df -Tha --total"
 
-function weather()
-{
- curl 'wttr.in/?m&lang=de'
- curl 'v2d.wttr.in/'
-}
 alias air='~/go/bin/air'
 
 alias sunvim='sudo -E bash -c "export HOME=$(eval echo ~$SUDO_USER) && nvim"'
@@ -71,18 +66,28 @@ export SSH_ASKPASS=
 
 # SSH-Agent gemeinsam für interaktive Shells verwenden
 if [[ $- == *i* ]]; then
-    if [ -z "$SSH_AUTH_SOCK" ] || ! test -S "$SSH_AUTH_SOCK"; then
-        if [ -f "$HOME/.ssh-agent-info" ]; then
-            eval "$(cat "$HOME/.ssh-agent-info")"
-        fi
-
-        if [ -z "$SSH_AUTH_SOCK" ] || ! test -S "$SSH_AUTH_SOCK"; then
-            eval "$(ssh-agent -s)" >/dev/null
-            printf 'export SSH_AUTH_SOCK=%q\nexport SSH_AGENT_PID=%q\n' \
-                "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$HOME/.ssh-agent-info"
-            ssh-add "$HOME/.ssh/id_ed25519"
-        fi
+  if [[ -z "$SSH_AUTH_SOCK" ]] || ! test -S "$SSH_AUTH_SOCK"; then
+    if [[ -f "$HOME/.ssh-agent-info" ]]; then
+      eval "$(cat "$HOME/.ssh-agent-info")"
     fi
+
+    if [[ -z "$SSH_AUTH_SOCK" ]] || ! test -S "$SSH_AUTH_SOCK"; then
+      eval "$(ssh-agent -s)" >/dev/null
+      printf 'export SSH_AUTH_SOCK=%q\nexport SSH_AGENT_PID=%q\n' \
+        "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" >"$HOME/.ssh-agent-info"
+    fi
+  fi
+
+  # Schlüssel laden, sofern noch nicht vorhanden
+  for key in "$HOME/.ssh/id_ed25519_bitbucket_new" "$HOME/.ssh/id_ed25519"; do
+    [[ -f "$key.pub" ]] || continue
+
+    fingerprint=$(ssh-keygen -lf "$key.pub" 2>/dev/null | awk '{print $2}')
+
+    if [[ -n "$fingerprint" ]] && ! ssh-add -l 2>/dev/null | grep -qF "$fingerprint"; then
+      ssh-add "$key"
+    fi
+  done
 fi
 
 eval "$(/home/jappe/go/bin/notes --completion-script-bash)"
