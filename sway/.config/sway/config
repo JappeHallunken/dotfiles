@@ -380,4 +380,6 @@ bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
 [ -n "$query" ] && zen "https://duckduckgo.com/?q=$(printf "%s" "$query" | sed "s/ /+/g")"'
 
 # exec kanshi
+exec realer-xpad
+
 include workspaces.conf

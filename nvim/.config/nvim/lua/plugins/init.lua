@@ -99,6 +99,13 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("pomo").setup(opts)
+
+      vim.api.nvim_set_hl(0, "NotifyINFOTitle", {
+        fg = "#2bbc39",
+      })
+    end,
   },
   -- These are some examples, uncomment them if you want to see them work!
   {
