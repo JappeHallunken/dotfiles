@@ -141,6 +141,45 @@ return {
       },
     },
   },
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = "Spectre",
+    keys = {
+      {
+        "<leader>sr",
+        function()
+          require("spectre").toggle()
+        end,
+        desc = "Search and Replace",
+      },
+    },
+    config = function()
+      require("spectre").setup()
+    end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "main",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "make tiktoken",
+    cmd = {
+      "CopilotChat",
+      "CopilotChatToggle",
+    },
+    keys = {
+      {
+        "<leader>cc",
+        "<cmd>CopilotChatToggle<cr>",
+        desc = "Copilot Chat",
+      },
+    },
+    opts = {},
+  },
 }
 -- {
 --   "echasnovski/mini.nvim",

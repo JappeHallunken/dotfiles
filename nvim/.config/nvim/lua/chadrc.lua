@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "one_light",
+  theme = "nord",
   theme_toggle = { "nord", "one_light" },
 
   hl_override = {
