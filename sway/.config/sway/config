@@ -273,6 +273,16 @@ bindsym $mod+u exec ~/.local/bin/unicode-picker
 # power off all displays
 bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
 
+# swayr hotkeys
+# Swayr
+bindsym $mod+Shift+w exec /home/jappe/.cargo/bin/swayr switch-workspace-or-window
+bindsym $mod+Shift+x exec /home/jappe/.cargo/bin/swayr steal-window
+# Zum zuletzt verwendeten Fenster wechseln
+bindsym $mod+Tab exec /home/jappe/.cargo/bin/swayr switch-to-urgent-or-lru-window
+
+# Fenster rückwärts durchschalten
+bindsym $mod+Shift+Tab exec /home/jappe/.cargo/bin/swayr switch-to-urgent-or-lru-window
+
 
 ### toggle idle_inhibatior
 #bindsym $mod+Ctrl+I "exec 'swaymsg inhibit_idle on'"
@@ -281,7 +291,7 @@ bindsym $mod+Shift+o exec swaymsg "output eDP-1 dpms toggle"
 #bindsym $mod+Ctrl+b exec tlp bat && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 #bindsym $mod+Ctrl+a exec tlp ac && /home/jappe/.config/waybar/scripts/waybar-tlp.sh
 
-default_border pixel 2
+default_border pixel 
 default_floating_border pixel 2
 #
    
