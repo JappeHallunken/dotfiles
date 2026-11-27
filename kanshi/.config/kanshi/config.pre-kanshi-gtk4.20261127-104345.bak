@@ -1,0 +1,94 @@
+# >>> kanshi-gtk4 managed block — regenerated on apply, do not edit
+# HDMI-A-1: Samsung Electric Company SyncMaster HVKS843299, 1680x1050 @ 59.883 Hz, logical 1680x1050
+# eDP-1: AU Optronics 0x5799, 1920x1080 @ 60.056 Hz, logical 1920x1080
+
+# Default when eDP-1 + HDMI-A-1 are connected
+profile auto-custom {
+	output HDMI-A-1 {
+		mode 1680x1050@59.883
+		position 1920,0
+		scale 1
+		transform normal
+	}
+	output eDP-1 {
+		mode 1920x1080@60.056
+		position 0,0
+		scale 1
+		transform normal
+	}
+}
+
+# Laptop only when eDP-1 + HDMI-A-1 are connected
+profile auto-single {
+	output HDMI-A-1 disable
+	output eDP-1 {
+		mode 1920x1080@60.056
+		position 0,0
+		scale 1
+		transform normal
+	}
+}
+
+# Extend when eDP-1 + HDMI-A-1 are connected
+profile auto-extend {
+	output HDMI-A-1 {
+		mode 1680x1050@59.883
+		position 1920,0
+		scale 1
+		transform normal
+	}
+	output eDP-1 {
+		mode 1920x1080@60.056
+		position 0,0
+		scale 1
+		transform normal
+	}
+}
+
+# Mirror when eDP-1 + HDMI-A-1 are connected
+profile auto-mirror {
+	output HDMI-A-1 {
+		mode 1680x1050@59.883
+		position 0,0
+		scale 0.972
+		transform normal
+	}
+	output eDP-1 {
+		mode 1920x1080@60.056
+		position 0,0
+		scale 1
+		transform normal
+	}
+}
+
+# External only when eDP-1 + HDMI-A-1 are connected
+profile auto-external-only {
+	output HDMI-A-1 {
+		mode 1680x1050@59.883
+		position 0,0
+		scale 1
+		transform normal
+	}
+	output eDP-1 disable
+}
+
+# Default when only eDP-1 is connected
+profile auto-single--edp-1 {
+	output eDP-1 {
+		mode 1920x1080@60.056
+		position 0,0
+		scale 1
+		transform normal
+	}
+}
+# <<< kanshi-gtk4 managed block
+
+# --- preserved from previous config ---
+profile desktop {
+    output eDP-1 enable position 0,0
+    output HDMI-A-1 enable mode 1680x1050 position 1920,0
+}
+
+profile laptop {
+    output eDP-1 enable position 0,0
+}

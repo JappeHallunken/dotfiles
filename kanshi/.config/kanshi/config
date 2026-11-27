@@ -1,0 +1,30 @@
+# eDP + Samsung SyncMaster
+profile samsung {
+    output eDP-1 enable position 0,0 mode 1920x1080
+
+    output "Samsung Electric Company SyncMaster HVKS843299" {
+        enable
+        mode 1680x1050
+        position 1920,0
+    }
+
+    exec swaymsg workspace 1, move workspace to eDP-1, workspace 2, move workspace to HDMI-A-1
+}
+
+# eDP + AOC
+profile aoc {
+    output eDP-1 enable position 2560,0 mode 1920x1080
+
+    output "AOC Q27G2G3R3B 18DPBHA012040" {
+        enable
+        mode 2560x1440
+        position 0,0
+    }
+
+    exec swaymsg workspace 1, move workspace to HDMI-A-1, workspace 2, move workspace to eDP-1
+}
+
+# only eDP
+profile internal {
+    output eDP-1 enable position 0,0 mode 1920x1080
+}
