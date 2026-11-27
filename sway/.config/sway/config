@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # Recommends: foot
-set $term foot
+# set $term foot
 set $term sh -c 'if [ "$(darkman get)" = dark ]; then foot; else foot --override=initial-color-theme=light; fi'
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -381,5 +381,3 @@ bindsym $mod+Shift+s exec sh -c 'query=$(echo "" | bemenu \
 
 # exec kanshi
 exec realer-xpad
-
-include workspaces.conf

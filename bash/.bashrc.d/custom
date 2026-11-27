@@ -66,16 +66,21 @@ export SSH_ASKPASS=
 
 # SSH-Agent gemeinsam für interaktive Shells verwenden
 if [[ $- == *i* ]]; then
-  if [[ -z "$SSH_AUTH_SOCK" ]] || ! test -S "$SSH_AUTH_SOCK"; then
-    if [[ -f "$HOME/.ssh-agent-info" ]]; then
-      eval "$(cat "$HOME/.ssh-agent-info")"
-    fi
+  if [[ -f "$HOME/.ssh-agent-info" ]]; then
+    eval "$(cat "$HOME/.ssh-agent-info")"
+  fi
 
-    if [[ -z "$SSH_AUTH_SOCK" ]] || ! test -S "$SSH_AUTH_SOCK"; then
-      eval "$(ssh-agent -s)" >/dev/null
-      printf 'export SSH_AUTH_SOCK=%q\nexport SSH_AGENT_PID=%q\n' \
-        "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" >"$HOME/.ssh-agent-info"
-    fi
+  # Agent-Verbindung prüfen (Exit-Code 2 = nicht erreichbar)
+  ssh-add -l >/dev/null 2>&1
+  status=$?
+
+  if [[ -z "$SSH_AUTH_SOCK" ]] || [[ $status -eq 2 ]]; then
+    unset SSH_AUTH_SOCK SSH_AGENT_PID
+
+    eval "$(ssh-agent -s)" >/dev/null
+
+    printf 'export SSH_AUTH_SOCK=%q\nexport SSH_AGENT_PID=%q\n' \
+      "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$HOME/.ssh-agent-info"
   fi
 
   # Schlüssel laden, sofern noch nicht vorhanden
