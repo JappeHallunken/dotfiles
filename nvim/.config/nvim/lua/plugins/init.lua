@@ -46,20 +46,6 @@ return {
     end,
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-
-      -- Only one of these is needed.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
-      "echasnovski/mini.pick", -- optional
-    },
-    config = true,
-    lazy = false,
-  },
-  {
     "epwalsh/pomo.nvim",
     lazy = true,
     cmd = { "TimerStart", "TimerRepeat", "TimerSession" },
@@ -116,7 +102,7 @@ return {
   },
   {
     "github/copilot.vim",
-    lazy = true,
+    lazy = false,
   },
   {
     "nvim-treesitter/nvim-treesitter",
